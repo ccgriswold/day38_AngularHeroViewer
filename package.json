@@ -1,0 +1,22 @@
+{
+  "name": "day38_angularheroviewer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claygrizzy/day38_AngularHeroViewer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/claygrizzy/day38_AngularHeroViewer/issues"
+  },
+  "homepage": "https://github.com/claygrizzy/day38_AngularHeroViewer#readme",
+  "devDependencies": {
+    "gulp-ng-annotate": "^2.0.0"
+  }
+}

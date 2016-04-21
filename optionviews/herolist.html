@@ -1,0 +1,13 @@
+<div class="pageview">
+  <h2>Character List</h2>
+  <input type="text" ng-model="herosearch.name" placeholder=" Hero Search" />
+
+  <a href="#/details">
+    <div id="listed-heroes" ng-click="extradetails(hero)" ng-repeat="hero in heroes | filter: herosearch" ng-view>
+      <p class="namestyling">{{hero.name}}</p>
+      <img src="{{hero.thumbnail.path}}.{{hero.thumbnail.extension}}" class="imagestyling"/>
+    </div>
+  </a>
+
+
+</div>

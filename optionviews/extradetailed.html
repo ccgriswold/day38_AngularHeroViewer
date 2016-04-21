@@ -1,0 +1,13 @@
+<div class="pageview">
+  <div id="clickeddetail" ng-view>
+    <h2>Super Name: {{currentchoice.name}}</h2>
+    <img src="{{clickedHeroPic}}" class="imagestyling"/>
+    <h3>Events Involved In:</h3>
+
+  <div class="moredetails" ng-repeat="event in events">
+    <p>{{event.title}}</p>
+    <img src="{{event.thumbnail.path}}.{{event.thumbnail.extension}}" class="imagestyling"/>
+    <p>{{event.description}}</p>
+  </div>
+</div>
+</div>
