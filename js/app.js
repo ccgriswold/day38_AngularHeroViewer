@@ -32,12 +32,20 @@ mainApp.config(['$routeProvider', function($routeProvider){
 // });
 
 mainApp.controller('HeroListController', ['$scope', '$http', 'HeroSelected', function($scope, $http, HeroSelected){
-    $scope.heroes = HeroSelected.grabHeroes();
+    $http({
+      method: 'GET',
+      url: 'http://gateway.marvel.com:80/v1/public/characters?events=29&apikey=7ac2434b13b9586847ea8973d001c6a6&limit=10',
+    }).then(function (response){
+      console.log('first response', response.data.data.results);
+      $scope.heroes = response.data.data.results;
+    });
+
+    // $scope.heroes = HeroSelected.grabHeroes();
 
     $scope.extradetails = function(hero){
       HeroSelected.extradetails(hero);
     };
-    $scope.heroSearch = hero.name;
+    $scope.heroSearch = '';
 }]);
 
 mainApp.controller('DetailsController', ['$scope', '$http', 'HeroSelected','$routeParams', function($scope, $http, $routeParams, HeroSelected){
@@ -68,13 +76,6 @@ mainApp.factory('HeroSelected', function ($http) {
     id: '',
   };
 
-  $http({
-    method: 'GET',
-    url: 'http://gateway.marvel.com:80/v1/public/characters?events=29&apikey=7ac2434b13b9586847ea8973d001c6a6&limit=100',
-  }).then(function (response){
-    console.log('first response', response.data.data.results);
-    return response.data.data.results;
-  });
 
   return{
     grabHeroes: function(){
@@ -104,7 +105,7 @@ mainApp.factory('HeroSelected', function ($http) {
       });
     },
     setEventName: function(){
-      return 
+      return events;
     }
   };
 });
